@@ -1,6 +1,7 @@
 import user from "./UserModel.js";
 import bcrypt from "bcrypt";
 import { nanoid } from "nanoid";
+import jwt from "jsonwebtoken";
 
 export const createUser = async (req, res) => {
     const {email, username, password, role} = req.body;
@@ -54,3 +55,14 @@ export const updateUser = async (req, res) => {
     console.log(error);
    }
 }
+
+export const loginUser = async (req, res) => {
+    const {email, password} = req.body;
+    const userRes = await user.findOne({email});
+    const isSame = await bcrypt.compare(password, userRes.password);
+    if (!isSame) {
+        return res.json({status: "fail", message: "Password salah!"}).status(404);
+    }
+    const token = jwt.sign({email}, "weakwaysfine-1234567890");
+    res.json({status: "success", message: "Login berhasil!", email, token}).status(200);
+};

@@ -14,6 +14,6 @@ app.use(cors());
 
 app.use("/", router);
 
-app.listen(process.env.PORT, () => {
-    console.log("App listening on port " + process.env.PORT)
+app.listen(8000, () => {
+    console.log("App listening on port " + 8000)
 })
