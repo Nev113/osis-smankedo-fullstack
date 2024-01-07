@@ -7,6 +7,13 @@ import Footer from "./element/Footer";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
 
+const Container = styled.div`
+    max-width: 100%;
+    @media (max-width: 700px;){
+    max-width: 700px;
+    }
+`
+
 const HeaderContainer = styled.div`
     width: 100%;
     height: 70vh;
@@ -634,7 +641,7 @@ export default function Home() {
     }, []);
     
     return(
-        <div>
+        <Container>
             <HelmetProvider>
                 <Helmet>
                     <title>OSIS SMANKEDO</title>
@@ -775,6 +782,6 @@ export default function Home() {
                 </div>
                 </Marquee>
             </Page5>
-        </div>
+        </Container>
     )
 }
