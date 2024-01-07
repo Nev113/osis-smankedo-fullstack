@@ -22,6 +22,9 @@ const Nav = styled.nav`
         margin: 0;
         border-right: 1px solid black;
     }
+    @media (max-width: 700px){
+    max-width: 90%;
+    }
     `
 export default function Navbar() {
     return (
