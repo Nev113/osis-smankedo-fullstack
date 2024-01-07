@@ -660,7 +660,7 @@ export default function Home() {
             <AboutContainer>
                 <SphereElement3 />
                 <RectangleElement2 />
-                <SphereElement4/>
+{/*                 <SphereElement4/> */}
                 <SphereElement5/>
                 <TriangleElement2/>
                 <HeaderPage>Tentang OSIS</HeaderPage>
