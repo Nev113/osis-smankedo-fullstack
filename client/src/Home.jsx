@@ -707,7 +707,6 @@ export default function Home() {
                     )}
             </Page3>
             <Hr />
-            <Hr />
             <Page5>
                 <HeaderPage>Ekstrakulikuler</HeaderPage>
                 <LineElement />
