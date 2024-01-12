@@ -5,6 +5,11 @@ import { useState, useEffect } from "react";
 import supabase from "../config/supabaseConfig.js";
 import Footer from "./element/Footer";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import lambangVoli from "./element/lambang-voli.png";
+import lambangPaskibraka from "./element/lambang-paskibra.jpg";
+import lambangInkanas from "./element/lambang-inkanas.png";
+import lambangPramuka from "./element/lambang-pramuka.png";
+
 
 
 const Container = styled.div`
@@ -456,11 +461,14 @@ const Page5 = styled.div`
     position: relative;
     width: 100%;
     height: 50vh;
+    @media (max-width: 700px){
+        margin-top: 400px;
+    }
     `
 const Marquee = styled.div`
 .slider {
-    margin-top: 100px;
     height: 60px;
+    margin-top: 50px;
     position: relative;
     width: 100%;
     height: 130px;
@@ -485,7 +493,13 @@ const Marquee = styled.div`
     top:0;
     transform:rotateZ(180deg);
   }
-  
+  .lambang{
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        filter: grayscale(100%);
+        transition: 1s;
+  }
   
   .slide-track {
     width: calc(150px * 20);
@@ -505,7 +519,7 @@ const Marquee = styled.div`
   }
   
   .slide {
-    width: 150px;
+    width: 50px;
     height: 60px;
     list-style: none;
     text-decoration: none;
@@ -514,8 +528,8 @@ const Marquee = styled.div`
     transition:0.5s;
     cursor:pointer;
   }
-  .slide:hover{
-    transform:scale(0.8)
+  .lambang:hover{
+    filter: grayscale(0%);
   }
   
   @keyframes scroll {
@@ -553,7 +567,11 @@ const Marquee = styled.div`
     .slide {
       width: 50px;
     }
-  
+    .lambang{
+        width: 50px;
+        height: 50px;
+        margin-left: 20px;
+    }
     @keyframes scroll {
       0% {
         transform: translateX(0px);
@@ -564,12 +582,26 @@ const Marquee = styled.div`
     }
 }
   `
+const Card_2 = styled.div`
+    width: 300px;
+    height: fit-content;
+    max-height: 550px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    margin: 30px auto;
+`
+
 
 export default function Home() {
     const [active, setActive] = useState(1);
     const [dataKetua, setDataKetua] = useState(null);
     const [dataWakil, setDataWakil] = useState(null);
     const [dataPembina, setDataPembina] = useState(null);
+    const [width, setWidth] = useState(window.innerWidth);
     const [error, setError] = useState(null);
     const handleActive = (e) => {
         if (active === e) return;
@@ -633,11 +665,17 @@ export default function Home() {
                 console.error(error);
             }
         }
+
         getDataPembina();
         getDataKetua();
         getDataWakil();
     }, []);
-    
+    function handleResize() {
+        setWidth(window.innerWidth);
+    }
+
+    window.addEventListener("resize", handleResize);
+
     return(
         <Container>
             <HelmetProvider>
@@ -678,43 +716,84 @@ export default function Home() {
                 <LineElement2 />
                 {error ? (<p>Data Sedang di Update, Mohon Bersabar</p>) : (
                 <div className="card-container">
-                <Card className="card-1 active" onClick={() => handleActive(1)}>
-                    <div>
-                         <div className="text-center bold h4 p-1">Pembina OSIS</div>
-                    <hr className="m-0 p-0" />
-                    <img className ="img-1 img-active" src="https://picsum.photos/300/200" alt="" />
-                    <div className="text-center bold h5 mt-2">{dataPembina == null ? "nama_ketua" : dataPembina[0]["nama-pembina"]}</div>
-                    <Description className="card-1-content m-3">{dataPembina === null ? "deskripsi_data" : dataPembina[0]["deskripsi-pembina"]}</Description>
-                    </div>
-                    </Card>
-                    <Card1 className="card-2 hover" onClick={() => handleActive(2)}>
-                    <div className="text-center bold h4 p-1">Ketua OSIS</div>
-                    <hr className="m-0 p-0" />
-                    <img className="img-2" src="https://picsum.photos/300/200" alt="" />
-                    <div className="text-center bold h5 mt-5">{dataKetua == null || dataKetua[0] === undefined ? "nama_Ketua" : dataKetua[0]["nama-ketua"]}</div>
-                    <Description className="card-2-content m-3">{dataKetua == null || dataKetua[0] === undefined ? "deskripsi_Ketua" : dataKetua[0]["deskripsi-ketua"]}</Description>
-                    <p className="angkatan">{dataKetua == null || dataKetua[0] === undefined ? "angkatan_Ketua" : dataKetua[0]["angkatan-ke"]}</p>
-                    </Card1>
-                    <Card2 className="card-3 hover" onClick={() => handleActive(3)}>
-                    <div className="text-center bold h4 p-1">Wakil Ketua OSIS</div>
-                    <hr className="m-0 p-0" />
-                    <img className="img-3" src="https://picsum.photos/300/200" alt="" />
-                    <div className="text-center bold h5 mt-5">{dataWakil == null || dataWakil[0] === undefined ? "nama_wakil" : dataWakil[0]["nama-wakil-ketua"]}</div>
-                    <Description className="card-3-content m-3">{dataWakil == null || dataWakil[0] === undefined ? "deskripsi_Wakil" : dataWakil[0]["deskripsi-wakil-ketua"]}</Description>
-                    <p className="angkatan">{dataWakil == null || dataWakil[0] === undefined ? "angkatan_wakil" : dataWakil[0]["angkatan-ke"]}</p>
-                    </Card2>
+                    { width > 700 ? (
+                        <>
+                        <Card className="card-1 active" onClick={() => handleActive(1)}>
+                        <div>
+                             <div className="text-center bold h4 p-1">Pembina OSIS</div>
+                        <hr className="m-0 p-0" />
+                        <img className ="img-1 img-active" src="https://picsum.photos/300/200" alt="" />
+                        <div className="text-center bold h5 mt-2">{dataPembina == null ? "nama_ketua" : dataPembina[0]["nama-pembina"]}</div>
+                        <Description className="card-1-content m-3">{dataPembina === null ? "deskripsi_data" : dataPembina[0]["deskripsi-pembina"]}</Description>
+                        </div>
+                        </Card>
+                        <Card1 className="card-2 hover" onClick={() => handleActive(2)}>
+                        <div className="text-center bold h4 p-1">Ketua OSIS</div>
+                        <hr className="m-0 p-0" />
+                        <img className="img-2" src="https://picsum.photos/300/200" alt="" />
+                        <div className="text-center bold h5 mt-5">{dataKetua == null || dataKetua[0] === undefined ? "nama_Ketua" : dataKetua[0]["nama-ketua"]}</div>
+                        <Description className="card-2-content m-3">{dataKetua == null || dataKetua[0] === undefined ? "deskripsi_Ketua" : dataKetua[0]["deskripsi-ketua"]}</Description>
+                        <p className="angkatan">{dataKetua == null || dataKetua[0] === undefined ? "angkatan_Ketua" : dataKetua[0]["angkatan-ke"]}</p>
+                        </Card1>
+                        <Card2 className="card-3 hover" onClick={() => handleActive(3)}>
+                        <div className="text-center bold h4 p-1">Wakil Ketua OSIS</div>
+                        <hr className="m-0 p-0" />
+                        <img className="img-3" src="https://picsum.photos/300/200" alt="" />
+                        <div className="text-center bold h5 mt-5">{dataWakil == null || dataWakil[0] === undefined ? "nama_wakil" : dataWakil[0]["nama-wakil-ketua"]}</div>
+                        <Description className="card-3-content m-3">{dataWakil == null || dataWakil[0] === undefined ? "deskripsi_Wakil" : dataWakil[0]["deskripsi-wakil-ketua"]}</Description>
+                        <p className="angkatan">{dataWakil == null || dataWakil[0] === undefined ? "angkatan_wakil" : dataWakil[0]["angkatan-ke"]}</p>
+                        </Card2>
+                        </>
+                    ) : (
+                        <>
+                        <Card_2>
+                        <div className="text-center bold h4 p-1">Pembina OSIS</div>
+                        <hr className="m-0 p-0" />
+                        <img  src="https://picsum.photos/300/200" alt="" />
+                        <div className="text-center bold h5 mt-2">{dataPembina == null ? "nama_pembina" : dataPembina[0]["nama-pembina"]}</div>
+                        <Description className="card-1-content m-3">{dataPembina === null ? "deskripsi_data" : dataPembina[0]["deskripsi-pembina"]}</Description>
+                        </Card_2>
+                        <Card_2>
+                        <div className="text-center bold h4 p-1">Ketua OSIS</div>
+                        <hr className="m-0 p-0" />
+                        <img className="img-2" src="https://picsum.photos/300/200" alt="" />
+                        <div className="text-center bold h5 mt-5">{dataKetua == null || dataKetua[0] === undefined ? "nama_Ketua" : dataKetua[0]["nama-ketua"]}</div>
+                        <Description className="card-2-content m-3">{dataKetua == null || dataKetua[0] === undefined ? "deskripsi_Ketua" : dataKetua[0]["deskripsi-ketua"]}</Description>
+                        <p className="angkatan">{dataKetua == null || dataKetua[0] === undefined ? "angkatan_Ketua" : dataKetua[0]["angkatan-ke"]}</p>
+                        </Card_2>
+                        <Card_2>
+                        <div className="text-center bold h4 p-1">Wakil Ketua OSIS</div>
+                        <hr className="m-0 p-0" />
+                        <img className="img-3" src="https://picsum.photos/300/200" alt="" />
+                        <div className="text-center bold h5 mt-5">{dataWakil == null || dataWakil[0] === undefined ? "nama_wakil" : dataWakil[0]["nama-wakil-ketua"]}</div>
+                        <Description className="card-3-content m-3">{dataWakil == null || dataWakil[0] === undefined ? "deskripsi_Wakil" : dataWakil[0]["deskripsi-wakil-ketua"]}</Description>
+                        <p className="angkatan">{dataWakil == null || dataWakil[0] === undefined ? "angkatan_wakil" : dataWakil[0]["angkatan-ke"]}</p>
+                        </Card_2>
+                        </>
+                    ) }
                     </div>
                     )}
             </Page3>
-            <Hr />
             <Page5>
+                <Hr />
                 <HeaderPage>Ekstrakulikuler</HeaderPage>
                 <LineElement />
                 <Marquee>
                 <div className="marquee slider">
                     <ul className="marquee-content slide-track">
-                    <li><i className="fab slide fa-github"></i></li>
-                    <li><i className="fab slide fa-codepen"></i></li>
+                    <li><img className="lambang" src={lambangPramuka}/></li>
+                    <li><img className="lambang" src={lambangPaskibraka}/></li>
+                    <li><img className="lambang" src={lambangVoli}/></li>
+                    <li><img className="lambang" src={lambangInkanas}/></li>
+                    <li><img className="lambang" src={lambangPramuka}/></li>
+                    <li><img className="lambang" src={lambangPaskibraka}/></li>
+                    <li><img className="lambang" src={lambangVoli}/></li>
+                    <li><img className="lambang" src={lambangInkanas}/></li>
+                    <li><img className="lambang" src={lambangPramuka}/></li>
+                    <li><img className="lambang" src={lambangPaskibraka}/></li>
+                    <li><img className="lambang" src={lambangVoli}/></li>
+                    <li><img className="lambang" src={lambangInkanas}/></li>
+                    {/* <li><i className="fab slide fa-codepen"></i></li>
                     <li><i className="fab slide fa-free-code-camp"></i></li>
                     <li><i className="fab slide fa-dev"></i></li>
                     <li><i className="fab slide fa-react"></i></li>
@@ -724,7 +803,7 @@ export default function Home() {
                     <li><i className="fab slide fa-wordpress"></i></li>
                     <li><i className="fab slide fa-aws"></i></li>
                     <li><i className="fab slide fa-docker"></i></li>
-                    <li><i className="fab slide fa-android"></i></li>
+                    <li><i className="fab slide fa-android"></i></li> */}
                     </ul>
                 </div>
                 </Marquee>

@@ -5,6 +5,7 @@ import logo from "./pngwing.com.png";
 
 
 const Nav = styled.nav`
+    max-width: 100%;
     .navbar{
         position: fixed;
         top: 0;
