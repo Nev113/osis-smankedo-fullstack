@@ -707,56 +707,6 @@ export default function Home() {
                     )}
             </Page3>
             <Hr />
-            <Page4>
-                <HeaderPage>Seksi Bidang</HeaderPage>
-                <LineElement></LineElement>
-                <CarouselContainer>
-                <div className="gradient-left"></div>
-                <div className="gradient-right"></div>
-                <div className="carousel-container">
-                <div id="carouselExampleCaptions" className="carousel slide">
-                    <div className="carousel-inner">
-                        <div className="carousel-item active">
-                        <img src="https://picsum.photos/300/200" className="d-block" alt="..." />
-                        </div>
-                        <div className="carousel-item">
-                        <img src="https://picsum.photos/300/200" className="d-block" alt="..." />
-                        </div>
-                        <div className="carousel-item">
-                        <img src="https://picsum.photos/300/200" className="d-block" alt="..." />
-                        </div>
-                        <div className="carousel-item">
-                        <img src="https://picsum.photos/300/200" className="d-block" alt="..." />
-                        </div>
-                        <div className="carousel-item">
-                        <img src="https://picsum.photos/300/200" className="d-block" alt="..." />
-                        </div>
-                        <div className="carousel-item">
-                        <img src="https://picsum.photos/300/200" className="d-block" alt="..." />
-                        </div>
-                        <div className="carousel-item">
-                        <img src="https://picsum.photos/300/200" className="d-block" alt="..." />
-                        </div>
-                        <div className="carousel-item">
-                        <img src="https://picsum.photos/300/200" className="d-block" alt="..." />
-                        </div>
-                        <div className="carousel-item">
-                        <img src="https://picsum.photos/300/200" className="d-block" alt="..." />
-                        </div>
-                    </div>
-                    <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                        <span className="black" aria-hidden="true"><i className="fa-solid black fa-arrow-left"></i></span>
-                        <span className="visually-hidden">Previous</span>
-                    </button>
-                    <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                        <span className="black" aria-hidden="true"><i className="fa-solid fa-arrow-right"></i></span>
-                        <span className="visually-hidden">Next</span>
-                    </button>
-                </div>
-                </div>
-                </CarouselContainer>
-                <AboutText className="mt-5 text-center">Klik pada gambar untuk mendapatkan detail sekbid</AboutText>
-            </Page4>
             <Hr />
             <Page5>
                 <HeaderPage>Ekstrakulikuler</HeaderPage>
