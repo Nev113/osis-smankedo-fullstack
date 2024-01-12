@@ -92,9 +92,7 @@ const SphereElement4 = styled.div`
     right: -100px;
     z-index: -2;
     @media (max-width: 700px){
-       width: 100px;
-        height: 100px;
-        right: -50px;
+       display: none;
     }
     `
 const SphereElement5 = styled.div`

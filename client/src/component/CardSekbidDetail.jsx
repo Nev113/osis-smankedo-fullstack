@@ -10,12 +10,12 @@ const Card = styled.div`
     border-radius: 10px;
     position: relative;
     img{
-        width: 97%;
+        width: 1220px;
         height: 550px;
-        fit: cover;
+        object-fit: cover;
         border-radius: 10px;
         margin: 20px;
-        fit: cover;
+        object-fit: cover;
     }
     .text-description{
         font-size: 30px;
@@ -36,7 +36,7 @@ const Card = styled.div`
         display: inline-block;
         position: absolute;
         left: 30px;
-        bottom: 7px;
+        bottom: 10px;
     }
     .description-container{
         margin-top: 30px;
@@ -59,7 +59,7 @@ const Card = styled.div`
         left: 100px;
     }
     .dot-1::before{
-        content: "";
+        content: " ";
         width: 20px;
         height: 20px;
         background-color: #000;
@@ -67,8 +67,14 @@ const Card = styled.div`
         position: absolute;
         left: -30px;
         top: 10px;
+        z-index: -1;
     }
     .dot-1{
+        position: relative;
+        max-width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         color: #171a1f;
         position: absolute;
         left: 123px;
@@ -301,124 +307,104 @@ const Card = styled.div`
             background-color: #565e6c;
             display: inline-block;
             position: absolute;
-            left: 0px;
+            left: 5px;
+            bottom: 10px;
         }
         .card-inner{
-            width: 100%;
+            border: 1px solid #565e6c;
+            width: 96%;
             height: 400px;
-            margin-left: 0px;
+            margin: auto;
         }
         .line-1{
             left: 28px;
         }
         .dot-1{
-            left: 53px;
-            font-size: 14px;
+            top: 20px;
+            left: 50px;
         }
-        .dot-1::before{
-            width: 15px;
-            height: 15px;
-        }
+        // .dot-1::before{
+        //     content: "";
+        //     width: 15px;
+        //     height: 15px;
+        // }
         .dot-2{
-            left: 53px;
-            font-size: 14px;
+            display: none;
         }
-        .dot-2::before{
-            width: 15px;
-            height: 15px;
-        }
+        // .dot-2::before{
+        //     width: 15px;
+        //     height: 15px;
+        // }
         .dot-3{
-            left: 53px;
-            font-size: 14px;
+            display: none;
         }
-        .dot-3::before{
-            width: 15px;
-            height: 15px;
-        }
+        // .dot-3::before{
+        //     width: 15px;
+        //     height: 15px;
+        // }
         .line-2{
-            left: 178px;
+            display: none;
         }
         .dot-4{
-            left: 203px;
-            font-size: 14px;
+            display: none;
         }
-        .dot-4::before{
-            width: 15px;
-            height: 15px;
-        }
+        // .dot-4::before{
+        //     width: 15px;
+        //     height: 15px;
+        // }
         .dot-5{
-            left: 203px;
-            font-size: 14px;
+            display: none;
         }
-        .dot-5::before{
-            width: 15px;
-            height: 15px;
-        }
+        // .dot-5::before{
+        //     width: 15px;
+        //     height: 15px;
+        // }
         .dot-6{
-            left: 203px;
-            font-size: 14px;
+            display: none;
         }
-        .dot-6::before{
-            width: 15px;
-            height: 15px;
-        }
+        // .dot-6::before{
+        //     width: 15px;
+        //     height: 15px;
+        // }
         .line-3{
-            left: 320px;
+            display: none;
 
         }
         .dot-7{
-            left: 345px;
-            font-size: 14px;
+            display: none;
         }
-        .dot-7::before{
-            width: 15px;
-            height: 15px;
-        }
+        // .dot-7::before{
+        //     width: 15px;
+        //     height: 15px;
+        // }
         .dot-8{
-            left: 345px;
-            font-size: 14px;
+            display: none;
         }
-        .dot-8::before{
-            width: 15px;
-            height: 15px;
-        }
+        // .dot-8::before{
+        //     width: 15px;
+        //     height: 15px;
+        // }
         .dot-9{
-            left: 345px;
-            font-size: 14px;
+            display: none;
         }
-        .dot-9::before{
-            width: 15px;
-            height: 15px;
-        }
+        // .dot-9::before{
+        //     width: 15px;
+        //     height: 15px;
+        // }
         .sphere{
-            width: 100px;
-            height: 100px;
-            left: -50px;
-            bottom: 50px;
+            display: none;
         }
         .square-dotted{
-            width: 100px;
-            height: 50px;
-            right: 100px;
-            bottom: 15px;
+            display: none;
         }
         .square{
-            width: 100px;
-            height: 50px;
-            right: 70px;
-            bottom: 0px;
+            display: none;
         }
         .sphere-2{
-            width: 100px;
-            height: 100px;
-            right: 0px;
-            bottom: 100px;
+           display: none;
         }
         .sphere-2-dotted{
-            width: 100px;
-            height: 100px;
-            right: -40px;
-            bottom: 90px;
+            display: none;
         }
         card-inner > div{
             font-size: 10px;
