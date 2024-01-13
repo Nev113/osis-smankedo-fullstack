@@ -504,14 +504,14 @@ const Marquee = styled.div`
   .slide-track {
     width: calc(150px * 20);
     display: flex;
-    animation: scroll 25s linear infinite;
+    animation: scroll 50s linear infinite;
     justify-content: space-between;
   }
   
   .slide-track2 {
     width: calc(150px * 15);
     display: flex;
-    animation: scroll2 15s linear infinite;
+    animation: scroll2 100s linear infinite;
     justify-content: space-between;
   }
   ul li{
@@ -808,6 +808,7 @@ export default function Home() {
                 </div>
                 </Marquee>
             </Page5>
+            <Footer />
         </Container>
     )
 }

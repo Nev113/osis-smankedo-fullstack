@@ -26,7 +26,7 @@ const Container = styled.div`
       }
     }
     @media (max-width: 576px){
-      margin: 100px 10px;
+      margin: 100px 40px;
       .select-menu{
         font-size: 16px;
         margin-top: 50px;
