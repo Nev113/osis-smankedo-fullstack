@@ -299,7 +299,7 @@ const Page3 = styled.div`
        transform: translateX(400px);
        top: 90px;
        height: 500px;
-       width: 900px;
+       width: 100%;
        .card-2-content{
               height: 500px;
        }
