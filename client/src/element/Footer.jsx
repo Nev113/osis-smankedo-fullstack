@@ -68,14 +68,10 @@ const FooterContainer = styled.div`
   }
   @media (max-width:726) {
     .logo-osis{
-    width: 57px;
-    height: 76px;
-    margin-right: 500px;
+     display: none;
     }
     .logo-smankedo{
-     width: 75px;
-     height: 75px;
-     margin-left: 500px;
+     display: none;
     }
   }
 `;
