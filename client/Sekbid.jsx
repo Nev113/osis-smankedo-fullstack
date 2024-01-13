@@ -94,9 +94,9 @@ export default function Sekbid() {
             <Navbar></Navbar>
         <Container>
         <HeaderName className="title-main">Seksi Bidang</HeaderName>
-        <SelectMenu className="select-menu">
-            <option value={"2023"} onClick={() => getData(2023)} defaultValue={true}>Tahun Jabatan 2023</option>
-            <option value={"2024"} onClick={() => getData(2024)}>Tahun Jabatan 2024</option>
+        <SelectMenu className="select-menu" onClick={(event) => getData(event.target.value)}>
+            <option value="2023" defaultValue={true}>Tahun Jabatan 2023</option>
+            <option value="2024" >Tahun Jabatan 2024</option>
         </SelectMenu>
         {datas.length === 0 ? <div className="loading fs-1 text-center" style={{marginTop: "100px"}}>Loading...</div> : null}
         {datas.map((d, i) => (<SekbidCard key={i} title={d.title} description={d.description} year={d.tahun} no={d.no} ></SekbidCard>))}
