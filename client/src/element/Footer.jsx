@@ -67,7 +67,6 @@ const FooterContainer = styled.div`
     margin-top: 50px;
     object-fit: cover;
   }
-<<<<<<< HEAD
   @media (max-width:726) {
     .logo-osis{
      display: none;
@@ -76,15 +75,6 @@ const FooterContainer = styled.div`
      display: none;
     }
   }
-=======
-  @media (max-width: 768px){
-    .logo-osis{
-      display: none;
-    }
-    .logo-smankedo{
-      display: none;
-    }
->>>>>>> 026c344 (adding some detail)
 `;
 
 
