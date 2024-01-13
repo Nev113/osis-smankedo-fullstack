@@ -466,6 +466,7 @@ const Page5 = styled.div`
     }
     `
 const Marquee = styled.div`
+margin-top: 150px;
 .slider {
     height: 60px;
     margin-top: 50px;
@@ -570,14 +571,14 @@ const Marquee = styled.div`
     .lambang{
         width: 50px;
         height: 50px;
-        margin-left: 20px;
+        margin-left: 100px;
     }
     @keyframes scroll {
       0% {
         transform: translateX(0px);
       }
       100% {
-        transform: translateX(calc(-80px * 10));
+        transform: translateX(calc(-80px * 6));
       }
     }
 }

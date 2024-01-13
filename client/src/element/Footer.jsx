@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import logo from "../component/logo-smankedo.png";
 import logo2 from "./pngwing.com.png";
+import { Link } from "react-router-dom";
 
 const FooterContainer = styled.div`
   width: 100%;
@@ -66,6 +67,7 @@ const FooterContainer = styled.div`
     margin-top: 50px;
     object-fit: cover;
   }
+<<<<<<< HEAD
   @media (max-width:726) {
     .logo-osis{
      display: none;
@@ -74,6 +76,15 @@ const FooterContainer = styled.div`
      display: none;
     }
   }
+=======
+  @media (max-width: 768px){
+    .logo-osis{
+      display: none;
+    }
+    .logo-smankedo{
+      display: none;
+    }
+>>>>>>> 026c344 (adding some detail)
 `;
 
 
@@ -83,8 +94,8 @@ export default function Footer() {
     <FooterContainer>
       <img className="logo-smankedo" src={logo} alt="" />
     <div className="container">
-    <i className="fa-brands item fa-youtube" style={{color:"#fffff"}}></i>
-    <i className="fa-brands item fa-facebook" style={{color:"#fffff"}}></i>
+    <i className="fa-brands item fa-youtube" onClick={() => window.location.href = "https://www.youtube.com/channel/UCv33E0kJFaWB2IN_KbCGEjQ"} style={{color:"#fffff"}}></i>
+    <i className="fa-brands item fa-facebook" onClick={ () => window.location.href = "https://www.facebook.com/p/OSIS-SMAN-1-Kedokanbunder-100064946040086"} style={{color:"#fffff"}}></i>
     <i className="fa-brands fa-instagram" style={{color:"#fffff"}}></i>
     </div>
     <div className="container-website">
