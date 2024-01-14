@@ -67,7 +67,7 @@ const FooterContainer = styled.div`
     margin-top: 50px;
     object-fit: cover;
   }
-  @media (max-width:726px) {
+  @media (max-width:826px) {
     .logo-osis{
      display: none;
     }

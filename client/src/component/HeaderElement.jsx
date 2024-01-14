@@ -25,8 +25,7 @@ const Sphere1 = styled.div`
     right: -75px;
     animation: move2 10s infinite;
     @media (max-width: 768px){
-        width: 100px;
-        height: 100px;
+        display: none;
     }
 `
 

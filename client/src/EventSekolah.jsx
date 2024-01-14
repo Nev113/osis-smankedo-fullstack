@@ -56,6 +56,7 @@ export default function EventSekolah() {
         image: imagesDataName[index+1]?.metadata.url.data.publicUrl,
         date: acara.date,
         status: acara.status,
+        sudah_dilaksanakan: acara.sudah_dilaksanakan,
         body: acara.body,
     }));
     return (
@@ -70,7 +71,7 @@ export default function EventSekolah() {
             <div className="container-card">
                 {formattedData.map((d) => (
                     <div key={d.title}>
-                        <Card title={d.title} image={d.image} date={d.date} status={d.status} body={d.body} id={d.id} />
+                        <Card title={d.title} image={d.image} date={d.date} status={d.status} body={d.body} id={d.id} sudah_dilaksanakan={d.sudah_dilaksanakan}/>
                     </div>
                 ))}
             </div>

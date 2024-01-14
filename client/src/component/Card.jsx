@@ -19,10 +19,9 @@ const CardElement = styled.div`
     padding: 10px;
     transition: .2s;
     @media screen and (max-width: 700px){
-        margin-left: 0px;
+        margin: 20px auto auto auto;
         width: 100%;
         font-size: 14px;
-        margin: 10px 10px;
     }
     hr{
         margin:0;
@@ -71,7 +70,7 @@ const CardElement = styled.div`
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        background-color: green;
+        background-color: ${props => props.done === true ? "green" : "red"};
     }
     .status::after{
         content: "";
@@ -154,9 +153,10 @@ const CardElement = styled.div`
     }
 `
 
-function Card ({title, image, body, date, status, id}){
+function Card ({title, image, body, date, status, id, sudah_dilaksanakan}){
+    console.log(sudah_dilaksanakan)
     return (
-        <CardElement onClick={() => window.location.href = `/acara?id=${id}`}>
+        <CardElement done={sudah_dilaksanakan} onClick={() => window.location.href = `/acara?id=${id}`}>
             <img src={image} alt="" />
             <div className="card-container">
             <h3 className="title">{title}</h3>
